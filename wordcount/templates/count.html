@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <a href="{% url 'homepage' %}">回到首页</a>
+<h3>The Total numbers of your text is <strong>{{ total }}</strong></h3>
+ <br>
+<h1>Your Text</h1>
+<p>{{ fulltext }}</p>
+ <br>
+<h1>Frequency</h1>
+ <ul>
+{% for x, y in counterlist %}
+   <li>{{ x }}: --{{ y }}</li>
+{% endfor %}
+  </ul>
+
+</body>
+</html>

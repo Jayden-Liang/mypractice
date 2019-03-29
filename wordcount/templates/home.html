@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h5>this is home page, for countting frequencies of words</h5>
+<form action="{% url 'count' %}" method="post">
+    {% csrf_token %}
+    <textarea name="words" id="" cols="30" rows="10"></textarea>
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>
