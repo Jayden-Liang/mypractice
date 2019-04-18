@@ -1,0 +1,9 @@
+Flask
+
+# Application server for both development and production.
+gunicorn
+pytest
+pytest-cov
+flake8
+Click
+flask-debugtoolbar

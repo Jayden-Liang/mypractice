@@ -1,0 +1,14 @@
+Flask
+
+# Application server for both development and production.
+gunicorn
+pytest
+pytest-cov
+python-dotenv
+flake8
+Click
+flask-debugtoolbar
+Flask-Mail
+Flask-WTF
+redis
+celery

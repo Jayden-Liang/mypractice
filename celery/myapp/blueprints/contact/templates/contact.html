@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% import 'macros/form.html' as f with context %}
+
+{% block body %}
+<h1>Get in Touch</h1>
+<p>We are here to hear your thoughts and anything</p>
+{% call f.form_tag('contact.contactindex', css_class='contactform') %}
+   {% call f.form_group(form.name,css_class='dataArea') %}
+   {% endcall %}
+   {% call f.form_group(form.email, css_class='dataArea') %}
+   {% endcall %}
+   {% call f.form_group(form.content, css_class='dataArea') %}
+   {% endcall %}
+   <button type="submit" class="btn btn-dark">Send e-mail</button>
+{% endcall %}
+{% endblock %}
