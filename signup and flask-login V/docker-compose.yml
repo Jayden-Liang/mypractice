@@ -1,0 +1,40 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:alpine'
+    env_file:
+      - '.env'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    ports:
+      - '5432:5432'
+  redis:
+    image: 'redis:5.0-alpine'
+    command: redis-server --requirepass devpassword
+    volumes:
+      - 'redis:/var/lib/redis/data'
+    ports:
+      - '6379:6379'
+  website:
+    build: .
+    command: >
+      gunicorn -b 0.0.0.0:8000
+        --access-logfile -
+        --reload
+        "myapp.app:create_app()"
+    env_file:
+      - '.env'
+    volumes:
+      - '.:/myapp'
+    ports:
+      - '8000:8000'
+  celery:
+    build: .
+    command: celery worker -l info -A myapp.blueprints.contact.tasks
+    env_file:
+      - '.env'
+    volumes:
+      - '.:/myapp'
+volumes:
+  postgres:
+  redis:

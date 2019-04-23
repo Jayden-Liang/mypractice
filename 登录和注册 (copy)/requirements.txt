@@ -1,0 +1,7 @@
+Flask
+gunicorn
+flask-debugtoolbar
+Flask-WTF
+Flask-SQLAlchemy
+Flask-Login
+WTForms-Components

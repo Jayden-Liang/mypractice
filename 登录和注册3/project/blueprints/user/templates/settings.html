@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>settings page</title>
+  </head>
+{% block body %}
+<h1>This is setting page</h1><br>
+<p>your user info is </p>
+<p>邮箱是:{{ current_user.email }}</p> <a href="{{ url_for('user.update_email', query='hi') }}">更改绑定邮箱</a>
+<br>
+<a href="{{ url_for('user.update_pwd') }}">更改密码</a>
+<br>
+{% if current_user.username %}
+   <p>您的用户名是: {{ current_user.username }}</p>
+{% else %}
+   <p>you are not choose a username yet</p> <a href="{{ url_for('user.welcome') }}">go choose one</a>
+{% endif %}
+
+{% endblock %}
+</html>

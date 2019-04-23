@@ -1,0 +1,24 @@
+Flask
+
+# Application server for both development and production.
+gunicorn
+pytest
+pytest-cov
+flake8
+Click
+flask-debugtoolbar
+Flask-Login
+Flask-WTF
+redis
+celery
+
+
+#database
+psycopg2
+Flask-SQLAlchemy
+
+
+
+
+
+

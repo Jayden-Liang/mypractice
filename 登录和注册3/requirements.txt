@@ -1,0 +1,16 @@
+Flask
+
+# Application server for both development and production.
+gunicorn
+pytest==4.3.0
+pytest-cov
+flake8
+flask-debugtoolbar
+Flask-WTF
+Flask-SQLAlchemy
+Flask-Login
+WTForms-Components
+psycopg2
+Click
+sqlalchemy-utils
+bcrypt
