@@ -1,6 +1,8 @@
 from flask import Flask
+from celery import Celery
 from project.blueprints.page.route_index import page
 from project.blueprints.user.views import user
+from project.blueprints.user.models import User
 from project.extensions import  csrf, db, login_manager
 
 def create_app(settings_override=None):
@@ -18,10 +20,25 @@ def create_app(settings_override=None):
     app.register_blueprint(page)
     app.register_blueprint(user)
     extension(app)
-
-
+    authentication(app)
     return app
 
+CELERY_TASK_LIST =[
+    'project.blueprints.user.celery_task'
+]
+def create_celery_app(app=None):
+    app = app or create_app()
+    celery = Celery(app.import_name, broker=app.config['CELERY_BROKER_URL'],
+    include=CELERY_TASK_LIST)
+    celery.conf.update(app.config)
+    TaskBase = celery.Task
+    class ContextTask(TaskBase):                #以下是为每个task设置context，如果要access数据库，就要设置context
+        abstract = True
+        def __call__(self, *args, **kwargs):
+            with app.app_context():
+                return TaskBase.__call__(self, *args, **kwargs)
+    celery.Task = ContextTask
+    return celery
 
 def extension(app):
     print('hi there')
@@ -29,3 +46,10 @@ def extension(app):
     db.init_app(app)
     login_manager.init_app(app)
     return None
+
+def authentication(app):
+    login_manager.login_view = 'user.login'
+
+    @login_manager.user_loader
+    def load_user(uid):
+        return User.query.get(uid)

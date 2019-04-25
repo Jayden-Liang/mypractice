@@ -7,10 +7,13 @@
 {% block body %}
 <h1>This is setting page</h1><br>
 <p>your user info is </p>
-<p>邮箱是:{{ current_user.email }}</p> <a href="{{ url_for('user.update_email', query='hi') }}">更改绑定邮箱</a>
+<p>邮箱是:{{ current_user.email }}</p> <a href="{{ url_for('user.update_email') }}">更改绑定邮箱</a>
 <br>
 <a href="{{ url_for('user.update_pwd') }}">更改密码</a>
 <br>
+<p>此次于{{ current_user.current_login_time }} 登录，IP为：{{ current_user.current_login_ip }}</p>
+<p>上次登录：{{ current_user.last_login_time }}</p>
+<p>上次登录ip: {{ current_user.last_login_ip }}</p>
 {% if current_user.username %}
    <p>您的用户名是: {{ current_user.username }}</p>
 {% else %}

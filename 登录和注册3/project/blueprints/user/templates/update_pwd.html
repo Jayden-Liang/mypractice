@@ -6,7 +6,7 @@
   </head>
 {% block body %}
 <h1>this is the page for updating pwd</h1><br>
-  <form class="form" action="{{ url_for('user.update_email') }}" method="post">
+  <form class="form" action="{{ url_for('user.update_pwd') }}" method="post">
      {{ form.hidden_tag() }}
      {{ form.identity.label }} {{ form.identity(size=20, class= 'form-control') }}
      {{ form.curent_password.label }} {{ form.curent_password(size=20, class= 'form-control') }}

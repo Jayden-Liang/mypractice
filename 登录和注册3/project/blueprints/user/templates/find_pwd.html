@@ -2,21 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>register page</title>
+    <title>find pwd page</title>
   </head>
-{% block
-   body %}
-  <form class="form" action="{{ url_for('user.signup') }}" method="post">
+{% block body %}
+<h1>找回密码</h1><br>
+<h2>请填写注册邮箱</h2>
+  <form class="form" action="{{ url_for('user.find_pwd') }}" method="post">
      {{ form.hidden_tag() }}
      {{ form.email.label }} {{ form.email(size=20, class= 'form-control') }}
      {% for message in form.email.errors %}
         <small class='error'>{{ message }}</small>
       {% endfor %}
-     {{ form.password.label }} {{ form.password(size=20, class= 'form-control') }}
-     {% for message in form.password.errors %}
-        <small class='error'>{{ message }}</small>
-      {% endfor %}
      <button type="submit" name="button">提交</button>
   </form>
+  <br>
 {% endblock %}
 </html>

@@ -30,9 +30,9 @@ def init(with_testdb):
 
     if with_testdb:
         db_uri = '{0}_test'.format(app.config['SQLALCHEMY_DATABASE_URI'])
-
         if not database_exists(db_uri):
             create_database(db_uri)
+            print('创建了测试数据库')
 
     return None
 

@@ -9,8 +9,17 @@
   <form class="form" action="{{ url_for('user.update_email') }}" method="post">
      {{ form.hidden_tag() }}
      {{ form.email.label }} {{ form.email(size=20, class= 'form-control') }}
+     {% for message in form.email.errors %}
+        <small class='error'>{{ message }}</small>
+        {% endfor %}
      {{ form.curent_password.label }} {{ form.curent_password(size=20, class= 'form-control') }}
+     {% for message in form.curent_password.errors %}
+        <small class='error'>{{ message }}</small>
+        {% endfor %}
      {{ form.new_email.label }} {{ form.new_email(size=20, class= 'form-control') }}
+     {% for message in form.new_email.errors %}
+        <small class='error'>{{ message }}</small>
+        {% endfor %}
      <button type="submit" name="button">提交</button>
   </form>
   <br>
