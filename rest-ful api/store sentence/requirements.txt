@@ -1,0 +1,8 @@
+# rebuild
+
+Flask==1.0.2
+flask-restful==0.3.7
+pymongo
+bcrypt
+
+

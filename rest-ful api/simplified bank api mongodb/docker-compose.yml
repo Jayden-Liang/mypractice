@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  db:
+    build: ./db
+
+
+  website:
+    build: .
+    command: >
+      gunicorn -b 0.0.0.0:5000
+        --access-logfile -
+        --reload
+        "project.app:create_app()"
+    env_file:
+      - '.env'
+    volumes:
+      - '.:/project'
+    ports:
+      - '5000:5000'
+    depends_on:
+      - db

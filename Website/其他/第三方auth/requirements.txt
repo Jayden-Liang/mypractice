@@ -1,0 +1,5 @@
+Flask==1.0.2
+gunicorn
+pymongo
+flask-oauthlib==0.9.5
+python-dotenv

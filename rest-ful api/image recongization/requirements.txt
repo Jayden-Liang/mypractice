@@ -1,0 +1,11 @@
+
+Flask
+# Application server for both development and production.
+gunicorn
+Flask-SQLAlchemy
+python-dotenv
+flask-restful==0.3.7
+psycopg2
+numpy
+tensorflow
+requests
