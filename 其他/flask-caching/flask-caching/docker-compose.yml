@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  client:
+    build: ./project/client
+    env_file:
+      - '.env'
+    volumes:
+      - './project/client:/client'
+    ports:
+      - '5000:5000'
+
+  api:
+    build: ./project/api
+    volumes:
+      - './project/api:/api'
+    ports:
+      - '4000:4000'
+
+  redis:
+    image: "redis:latest"
+    command: redis-server --requirepass devpassword
+    volumes:
+      - 'redis:/var/lib/redis/data'
+    ports:
+      - '6379:6379'
+
+volumes:
+  redis:

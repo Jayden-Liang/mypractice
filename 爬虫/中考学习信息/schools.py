@@ -45,7 +45,7 @@ def get_specific(url):
 # get_specific('http://zsxxtp.hnedu.cn/front/showSchoolInfo.do?XXDM=3643000761')
 
 def specific():
-    data = get_url('http://zsxxtp.hnedu.cn/front/showSchoolPageByZML.do?cityid=430100')
+    data = get_url('http://zsxxtp.hnedu.cn/front/showSchoolPageByZML.do?cityid=430400')
     for each in data:
         url = each['链接']
         dict1 = get_specific(url)
@@ -54,7 +54,7 @@ def specific():
 
 data = specific()
 
-with open('schools5.txt','w') as f:
+with open('schools-hengyang.txt','w') as f:
     a = json.dumps(data, ensure_ascii=False)
     f.write(a)
 

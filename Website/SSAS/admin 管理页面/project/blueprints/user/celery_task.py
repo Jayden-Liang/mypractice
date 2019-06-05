@@ -44,4 +44,5 @@ def sendgrid_email(email, to, **kwargs):
     from config import settings
     sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
     response = sg.send(message)
+    print(response)
     return None
