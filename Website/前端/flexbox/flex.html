@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>flex demo</title>
+    <style media="screen">
+      @media(min-width: 468px){
+        .container-1{
+          display: flex;
+          /*align-items: flex-start;     上方对齐，下方长的就长，短的就短*/
+          /*align-items: flex-end;       下方对齐，上方长的就长，短的就短*/
+          /* align-items: center;  在中间，两边长短不一，感觉很怪*/
+          /* flex-direction: column;  默认横向扩展，这里变成纵向扩展*/
+
+        }
+        .container-2{
+          display:flex;
+          /* justify-content: space-between;   中间加margin*/
+          justify-content: center;         /*居中，两边均匀留空隙 */
+        }
+      }
+
+
+      .container-1 div, .container-2 div{
+        border: 1px #ccc solid;
+        padding: 10px;
+      }
+      .box-1{
+        flex:2;
+        order:3;
+
+      }
+      .box-2{
+        flex:2;
+        order: 2;
+      }
+      .box-3{
+        flex:2;
+        order:1;
+      }
+      .container-2-box{
+        flex-basis: 25%;                       /*改变宽度*/
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="box-1">
+        <h3>BOX ONE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      </div>
+      <div class="box-2">
+        <h3>BOX TWO</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      </div>
+      <div class="box-3">
+        <h3>BOX THREE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      </div>
+    </div>
+
+    <div class="container-2">
+      <div class="container-2-box">
+        <h3>BOX ONE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      </div>
+      <div class="container-2-box">
+        <h3>BOX TWO</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      </div>
+      <div class="container-2-box">
+        <h3>BOX THREE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      </div>
+    </div>
+  </body>
+</html>
