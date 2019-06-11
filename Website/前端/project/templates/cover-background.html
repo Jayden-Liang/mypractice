@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test for background</title>
+    <style media="screen">
+      .background {
+               background-image:url('static/image/background.png');
+               position: relative;
+               height: 65vh;
+               background-size: cover;
+               <!-- box-shadow: inset 0 0 0 500px rgba(36, 70, 105, 0.74); -->
+        }
+      .layer {
+          background-color: rgba(248, 247, 216, 0.7);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+    <div class="layer">
+    </div>
+  </div>
+  <p>hello</p>
+  </body>
+</html>

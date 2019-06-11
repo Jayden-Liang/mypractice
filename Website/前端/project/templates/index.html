@@ -6,10 +6,11 @@
     <title>Demo Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename="style.css")}}">
   </head>
   <body>
   <!-- navigation -->
-  <nav class='navbar navbar-expand-md bg-light  navbar-light sticky-top'>
+  <nav class='navbar mynav navbar-expand-md bg-light navbar-light sticky-top'>
     <div class="container-fluid">
       <a href="#"><img src="{{ url_for('static', filename='image/bootstrap-4.svg') }}" width=50 height=50 alt=""></a>
       <button class='navbar-toggler' type="button" data-toggle='collapse' data-target="#navbarResponsive">
@@ -35,19 +36,19 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{ url_for('static', filename='image/carousel1.jpg') }}" class="d-block w-100" alt="...">
+      <img src="{{ url_for('static', filename='image/background.png') }}" class="d-block w-100" alt="...">
       <div class="carousel-caption">
         <h1 class="display-2">Bootstrap</h1>
         <h3>Complete Website Layout</h3>
         <button type="button" class="btn btn-outline-light btn-lg" name="button">VIEW DEMO</button>
-        <button type="button" class="btn btn-primary btn-lg" name="button">MORE INFO</button>
+        <button type="button" class="btn second-button btn-primary btn-lg" name="button">MORE INFO</button>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{{ url_for('static', filename='image/carousel2.jpg') }}" class="d-block w-100" alt="...">
+      <img src="{{ url_for('static', filename='image/background2.png') }}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{ url_for('static', filename='image/carousel3.jpg') }}" class="d-block w-100" alt="...">
+      <img src="{{ url_for('static', filename='image/background3.png') }}" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#slides" role="button" data-slide="prev">
@@ -93,17 +94,17 @@
   <div class="row text-center padding">
     <div class="col-xs-12 col-sm-6 col-md-4">
       <i class="fas fa-code"></i>
-      <h3>HTML5</h3>
+      <h3 class="slo">HTML5</h3>
       <p>To shewing another demands to. Marianne property cheerful</p>
     </div>
    <div class="col-sm-6 col-md-4">
       <i class="fas fa-bold"></i>
-      <h3>BOOTSTRAP</h3>
+      <h3 class="slo">BOOTSTRAP</h3>
       <p>In reasonable compliment favourable</p>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-4">
       <i class="fab fa-css3"></i>
-      <h3>CSS3</h3>
+      <h3 class="slo">CSS3</h3>
       <p>In reasonable compliment favourable</p>
     </div>
   </div>
@@ -139,22 +140,139 @@
 <div id="emoji" class="collapse">
   <div class="container-fluid padding">
      <div class="row text-center">
-       <div class="col-sm-6 col-md-3">
-         <img class='gif' src="{{ url_for('static', filename="image/fun.gif")}}" alt="">
+       <div class="col-sm-6 col-lg-3">
+         <img width="300" height="300" class='gif' src="{{ url_for('static', filename="image/fun.gif")}}" alt="">
        </div>
-       <div class="col-sm-6 col-md-3">
-         <img class='gif' src="{{ url_for('static', filename="image/fun1.gif")}}" alt="">
+       <div class="col-sm-6 col-lg-3">
+         <img width="300" height="300" class='gif' src="{{ url_for('static', filename="image/fun1.gif")}}" alt="">
        </div>
-       <div class="col-sm-6 col-md-3">
-         <img class='gif' src="{{ url_for('static', filename="image/fun2.gif")}}" alt="">
+       <div class="col-sm-6 col-lg-3">
+         <img width="300" height="300" class='gif' src="{{ url_for('static', filename="image/fun2.gif")}}" alt="">
        </div>
-       <div class="col-sm-6 col-md-3">
-         <img class='gif' src="{{ url_for('static', filename="image/fun3.gif")}}" alt="">
+       <div class="col-sm-6 col-lg-3">
+         <img width="300" height="300" class='gif' src="{{ url_for('static', filename="image/fun3.gif")}}" alt="">
        </div>
-     </div>
-
   </div>
 </div>
+</div>
+<!-- meet the team -->
+<div class="container-fluid padding">
+  <div class="row text-center">
+    <div class="col-12">
+      <h1 class="dispaly-4">Meet the Team</h1>
+    </div>
+    <hr>
+  </div>
+</div>
+
+<!-- cards  -->
+
+<div class="container-fluid padding">
+  <div class="row padding">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{ url_for('static', filename="image/team1.png") }}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Jonh Doe</h4>
+          <p class="card-text">Article nor prepare chicken you him now.</p>
+          <a href="#" class="btn btn-outline-secondary">See Profile</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{ url_for('static', filename="image/team2.png") }}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Mary Jo</h4>
+          <p class="card-text">Oh to talking improve produce in limited offices fifteen an. Wicket branch to answer do we. </p>
+          <a href="#" class="btn btn-outline-secondary">See Profile</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{ url_for('static', filename="image/team3.png") }}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">JAYDEN L</h4>
+          <p class="card-text">Warmly little before cousin sussex entire men set. Blessing it ladyship on sensible judgment settling out</p>
+          <a href="#" class="btn btn-outline-secondary">See Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 2 column section  -->
+
+<div class="container-fluid padding">
+  <div class="row padding">
+    <div class="col col-lg-6">
+      <h2>Our philosophy</h2>
+      <p>Enjoyed minutes related as at on on. Is fanny dried as often me. Goodness as reserved raptures to mistaken steepest oh screened he. Gravity he mr sixteen esteems. Mile home its new way with high told said. Finishe</p>
+      <br>
+      <p>Travelling alteration impression six all uncommonly. Chamber hearing inhabit joy highest private ask him</p>
+    </div>
+    <div class="col-lg-6">
+      <img class="img-fluid" src="{{ url_for('static', filename='image/bootstrap2.png') }}" alt="">
+    </div>
+  </div>
+</div>
+<!-- collect -->
+<div class="container-fluid padding">
+  <div class="row text-center padding">
+    <div class="col-12">
+      <h2>Connect</h2>
+    </div>
+    <div class="col-12 social padding">
+      <a href="#"> <i class='fab fa-facebook'></i> </a>
+      <a href="#"> <i class='fab fa-twitter'></i> </a>
+      <a href="#"> <i class='fab fa-google-plus-g'></i> </a>
+      <a href="#"> <i class='fab fa-instagram'></i> </a>
+      <a href="#"> <i class='fab fa-youtube'></i> </a>
+      <a href="#"> <i class='fab fa-github'></i> </a>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer>
+<div class="container-fluid padding">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <img src="{{ url_for('static', filename='image/logo.png') }}" alt="">
+      <hr class="light">
+      <p>666-666-666</p>
+      <p>email@jayden.com</p>
+      <p>100 street, sta , 00001</p>
+      <p>City, country</p>
+    </div>
+    <div class="col-md-4">
+      <hr class="light">
+      <h5>Our hours</h5>
+      <hr class="light">
+      <p>Monday: 9am - 5am</p>
+      <p>Saturday: 10am - 4am</p>
+      <p>Sunday: closed</p>
+    </div>
+    <div class="col-md-4">
+      <hr class="light">
+      <h5>Service area</h5>
+      <hr class="light">
+      <p>links available</p>
+      <p>acknowledge</p>
+    </div>
+    <div class="col-12">
+       <hr class="light-100">
+       <h6 last-line >&copy; jaydenNewbie.com</h6>
+    </div>
+  </div>
+</div>
+</footer>
+
+
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
