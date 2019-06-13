@@ -9,7 +9,11 @@ def create_app():
     @app.route('/test')
     def inde():
         return render_template('cover-background.html')
-    @app.route('/tegdsscssssdst')
+    @app.route('/game')
+    def indess():
+        return render_template('pig-game.html')
+
+    @app.route('/tecssssssest')
     def indxe():
         return render_template('cover-background.html')
 

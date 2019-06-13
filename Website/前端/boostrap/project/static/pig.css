@@ -1,0 +1,136 @@
+@import url('https://fonts.font.im/css?family=Lato:100,300,400');
+
+
+html, body{
+  height: 100%;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #555;
+
+}
+
+body{
+  position: relative;
+  background-image:linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url('images/back.jpg');
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  z-index: -1;
+}
+
+.player-1, .player-2{
+  padding:7rem;
+}
+
+.active{
+  background-color: #F8F9FA;
+}
+.active h3::after{
+  content:'\2022';
+  font-size: 47px;
+  position: absolute;
+  color: #EB4D4D;
+  top: 5rem;
+  right:12rem;
+
+}
+
+.main{
+    background-color: white;
+    width: 65%;
+    font-weight: 100;
+    z-index: 0;
+}
+.main{
+  position: fixed;
+  top: 20%;
+  left: 20%;
+
+}
+
+.mark-2{
+  width: 40%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 8rem;
+  background: #ff0000;
+
+
+}
+
+.mark-1{
+  width: 40%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin-top: 8rem;
+  background: #ff0000;
+
+}
+.current{
+  font-size: 150%;
+  font-weight: 300;
+
+
+}
+.score-2{
+  font-size: 100px;
+  font-weight: 100;
+
+}
+
+.score-1{
+  font-size: 100px;
+  font-weight: 100;
+}
+
+.current-1, .current-2{
+  font-size: 150%;
+  color: white;
+  font-weight: 300;
+  margin-bottom: 1rem !important;
+}
+
+/* button */
+.my-button{
+  width: 600px;
+}
+.my-button{
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  padding: 3rem;
+  height: 200px;
+
+}
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}
+
+button:hover { font-weight: 300; }
+button:hover i { margin-right: 10px; }
+
+.btn-1{
+  font-size:200%;
+  font-weight: 200;
+  outline: none;
+}
+.btn-2{
+  font-size:200%;
+  font-weight: 200;
+  outline: none;
+}
+
+.icon{
+  color: #fa8072;
+}
+
+/* dice */
+.dice{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
