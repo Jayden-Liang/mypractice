@@ -34,9 +34,14 @@
     <button type="button" id="btn-1" class='btn btn-1' name="button"><i class="fas icon fa-play-circle"></i> Roll Dice</button>
     <br>
     <button type="button" class='btn btn-2' name="button"><i class="fas icon fa-pause-circle"></i>     Hold</button>
+    <p class="win-point">20</p>
   </div>
 
   <img src="{{ url_for("static", filename='images/dice-5.png') }}" alt="Dice" width="100" height="100" class="dice">
+  <form class="form-inline my-2">
+      <input class="form-control " type="search" placeholder="change win point" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button">Change</button>
+  </form>
 
 
 

@@ -1,0 +1,7 @@
+
+flask
+gunicorn
+pymongo
+requests
+flask-caching
+redis
