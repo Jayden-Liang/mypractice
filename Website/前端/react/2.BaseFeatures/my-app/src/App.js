@@ -45,7 +45,8 @@ class App extends Component{
       {name: 'jayden', age: 26},
       {name: 'alice', age: 32}
     ],
-    otherState: 'some other value'
+    otherState: 'some other value',
+    renderPerson: false
   }
 
 
@@ -66,6 +67,12 @@ class App extends Component{
     })
   }
 
+  toggleHandler =()=>{
+     this.setState({
+       renderPerson: !this.state.renderPerson
+     })
+  }
+
 
   render(){
     const style ={
@@ -78,7 +85,9 @@ class App extends Component{
     };
     return (
       <div className='App'>
-        <button style={style} onClick={()=> this.switchNameHandler('jinx') }>switch name </button>
+        <button style={style} onClick={ this.toggleHandler }>switch name </button>
+        { this.state.renderPerson ?
+        <div>
         <Person
            name={this.state.person[0].name}
            age={this.state.person[0].age}
@@ -91,6 +100,8 @@ class App extends Component{
             age={this.state.person[1].age}>
             <h1>{ this.state.otherState}</h1>
         </Person>
+        </div> : null
+        }
       </div>
     )
   }
