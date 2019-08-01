@@ -1,5 +1,6 @@
 import React, { Component }from 'react';
 // import React, { useState } from 'react';
+import Radium, { StyleRoot } from 'radium'
 import logo from './logo.svg';
 import Person from './Person/Person';
 import './App.css';
@@ -80,12 +81,23 @@ class App extends Component{
 
   render(){
     const style ={
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      borderRadius:' 12px',
-      padding: '8px',
-      cursor: 'pointer'
+      '@media (min-width: 900px)':{
+        backgroundColor: 'green',
+        color: 'white',
+        font: 'inherit',
+        border: '1px solid blue',
+        borderRadius:' 18px',
+        padding: '8px',
+        cursor: 'pointer',
+        marginTop:'10rem',
+        outLine:'none',
+        ':hover':{
+          backgroundColor:'lightgrey',
+        },
+        ':focus':{
+          outline: 'none'
+        }
+      }
     };
     let persons=null;
     if (this.state.renderPerson){
@@ -104,15 +116,30 @@ class App extends Component{
 
         </div>
       )
+      style.backgroundColor='red';
+      style[':hover']={
+        backgroundColor: "blue",
+        color: "black"
+      }
+    }
+
+    const classes=[]
+    if (this.state.renderPerson){
+      classes.push('bold')
+    }else{
+      classes.push('red')
     }
     return (
+        <StyleRoot>
       <div className='App'>
-        <button style={style} onClick={ this.toggleHandler }>switch name </button>
+        <h4 className={classes.join(' ')}>Hello World</h4>
+        <button style={style} onClick={ this.toggleHandler }>switch Person</button>
         {persons}
       </div>
+     </StyleRoot>
     )
   }
 }
 
 
-export default App;
+export default Radium(App);
