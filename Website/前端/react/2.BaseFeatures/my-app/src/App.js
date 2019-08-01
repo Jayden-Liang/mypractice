@@ -1,9 +1,8 @@
 import React, { Component }from 'react';
 // import React, { useState } from 'react';
-import Radium, { StyleRoot } from 'radium'
 import logo from './logo.svg';
 import Person from './Person/Person';
-import './App.css';
+import appClasses from './App.module.css';
 
 // const App = props => {
 //   const [personState, setPersonState] = useState({
@@ -52,7 +51,7 @@ class App extends Component{
 
   nameChangedHandler = (event, id)=>{   //根据ID来改变name
     console.log(id)
-     const x=this.state.person.findIndex(el => id == el.id)              //这里少写了=,导致bug
+     const x=this.state.person.findIndex(el => id === el.id)              //这里少写了=,导致bug
      console.log(x)
      let theOne={...this.state.person[x]}
      theOne.name=event.target.value
@@ -80,26 +79,9 @@ class App extends Component{
 
 
   render(){
-    const style ={
-      '@media (min-width: 900px)':{
-        backgroundColor: 'green',
-        color: 'white',
-        font: 'inherit',
-        border: '1px solid blue',
-        borderRadius:' 18px',
-        padding: '8px',
-        cursor: 'pointer',
-        marginTop:'10rem',
-        outLine:'none',
-        ':hover':{
-          backgroundColor:'lightgrey',
-        },
-        ':focus':{
-          outline: 'none'
-        }
-      }
-    };
+
     let persons=null;
+    let btnClass='';
     if (this.state.renderPerson){
       persons=(
         <div>
@@ -113,33 +95,27 @@ class App extends Component{
                change={(event)=>this.nameChangedHandler(event, p.id)}
            />
         })}
-
         </div>
       )
-      style.backgroundColor='red';
-      style[':hover']={
-        backgroundColor: "blue",
-        color: "black"
-      }
+      btnClass=appClasses.Red
+
     }
 
     const classes=[]
     if (this.state.renderPerson){
-      classes.push('bold')
+      classes.push(appClasses.bold)
     }else{
-      classes.push('red')
+      classes.push(appClasses.red)
     }
     return (
-        <StyleRoot>
-      <div className='App'>
+      <div className={appClasses.App}>
         <h4 className={classes.join(' ')}>Hello World</h4>
-        <button style={style} onClick={ this.toggleHandler }>switch Person</button>
+        <button className={btnClass} onClick={ this.toggleHandler }>switch Person</button>
         {persons}
       </div>
-     </StyleRoot>
     )
   }
 }
 
 
-export default Radium(App);
+export default App;

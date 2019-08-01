@@ -7,3 +7,12 @@
   text-align: center;
 
 }
+.red{
+  color: red;
+}
+
+@media (min-width:800px){
+  .Person {
+    width: 20%;
+  }
+}
