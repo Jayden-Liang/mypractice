@@ -42,35 +42,39 @@ import './App.css';
 class App extends Component{
   state = {
     person:[
-      {name: 'jayden', age: 26},
-      {name: 'alice', age: 32}
+      {id:'dsdf', name: 'jayden', age: 26},
+      {id:'dfsfsaf', name: 'alex', age: 27}
     ],
     otherState: 'some other value',
     renderPerson: false
   }
 
-
-  switchNameHandler =(newName)=>{
-      this.setState({
-        person:[
-          {name: newName, age: 26},
-          {name: 'alice', age: 40}
-        ]
-      })
-    }
-  nameChangedHandler = (event)=>{
-    this.setState({
-      person:[
-        {name: 'Max ', age: 26},
-        {name: event.target.value, age: 40}
-      ]
-    })
+  nameChangedHandler = (event, id)=>{   //根据ID来改变name
+    console.log(id)
+     const x=this.state.person.findIndex(el => id == el.id)              //这里少写了=,导致bug
+     console.log(x)
+     let theOne={...this.state.person[x]}
+     theOne.name=event.target.value
+     console.log(theOne)
+     let persons=[...this.state.person]
+     persons[x]=theOne
+     this.setState({
+       person: persons
+     })
   }
 
   toggleHandler =()=>{
      this.setState({
        renderPerson: !this.state.renderPerson
      })
+  }
+
+  deleteHandler =(index)=>{
+    let arr =this.state.person
+    arr.splice(index, 1)
+    this.setState({
+      person:arr
+    })
   }
 
 
@@ -83,25 +87,28 @@ class App extends Component{
       padding: '8px',
       cursor: 'pointer'
     };
+    let persons=null;
+    if (this.state.renderPerson){
+      persons=(
+        <div>
+        {this.state.person.map((p, index)=> {
+          return <Person
+               click={this.deleteHandler.bind(this, index)}
+               name={p.name}
+               age={p.age}
+               key={p.id}
+               id={p.id}
+               change={(event)=>this.nameChangedHandler(event, p.id)}
+           />
+        })}
+
+        </div>
+      )
+    }
     return (
       <div className='App'>
         <button style={style} onClick={ this.toggleHandler }>switch name </button>
-        { this.state.renderPerson ?
-        <div>
-        <Person
-           name={this.state.person[0].name}
-           age={this.state.person[0].age}
-           click={this.switchNameHandler.bind(this, 'jerry')}
-          />
-        <Person
-            click={()=> this.switchNameHandler('pixel') }
-            name={this.state.person[1].name}
-            change={this.nameChangedHandler}
-            age={this.state.person[1].age}>
-            <h1>{ this.state.otherState}</h1>
-        </Person>
-        </div> : null
-        }
+        {persons}
       </div>
     )
   }
