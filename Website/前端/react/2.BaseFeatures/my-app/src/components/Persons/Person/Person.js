@@ -2,7 +2,6 @@ import React from 'react'
 import classes from './Person.module.css'
 
 const person=(props)=>{
-  console.log(classes)
   return (
     <div className={classes.Person}>
     <p onClick={props.click}>my name is {props.name}, age={props.age}</p>
@@ -12,7 +11,3 @@ const person=(props)=>{
 }
 
 export default person
-
-
-
-    // <span>{props.children}</span>

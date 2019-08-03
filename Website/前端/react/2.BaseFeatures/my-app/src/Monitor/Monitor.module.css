@@ -1,7 +1,7 @@
-.App {
-  text-align: center;
-}
 
+.Monitor{
+
+}
 .red{
   color: red;
 }
@@ -11,24 +11,23 @@
   font-size: 150%;
 }
 
-.App button{
+.Monitor button{
   outline: none;
   padding: 8px 12px;
   border-radius: 12px;
   cursor: pointer;
 }
 
-.App button:hover{
+.Monitor button:hover{
   outline: none;
   background-color: #5ac18e;
-
 }
 
-.App button:focus{
+.Monitor button:focus{
   outline: none;
   background-color: #ff80ed;
 }
 
-.App button.Red{
+.Monitor button.Red{
   background-color: red;
 }
