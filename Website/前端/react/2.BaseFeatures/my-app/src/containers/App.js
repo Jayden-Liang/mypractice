@@ -4,15 +4,44 @@ import logo from '../assets/logo.svg';
 import Persons from '../components/Persons/Persons';
 import appClasses from './App.module.css';
 import Monitor from '../Monitor/Monitor'
+import Aux from '../hoc/Aux'
+import withClass from '../hoc/WithClass'
+import AuthContext from '../context/auth-context.js'
 
 class App extends Component{
+  constructor(props){
+    super(props);                   //必须要调用super, excute extend的组件
+    console.log('[App.js] constructor');
+  }
+
   state = {
     person:[
       {id:'dsdf', name: 'jayden', age: 26},
       {id:'dfsfsaf', name: 'alex', age: 27}
     ],
     otherState: 'some other value',
-    renderPerson: false
+    renderPerson: false,
+    showMonitor: true,
+    namechangeCount:0,
+    authenticated: false
+  }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('App.js getDerivedStateFromProps', props)
+    return state                            //return updated state
+  }
+
+  componentDidMount(){
+    console.log('[app.js] componentDidMount')
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('[App.js] shouldComponentUpdate')
+    return true
+  }
+
+  componentDidUpdate(){
+    console.log('[App.js] componentDidUpdate')
   }
 
   nameChangedHandler = (event, id)=>{   //根据ID来改变name
@@ -21,8 +50,11 @@ class App extends Component{
      theOne.name=event.target.value
      let persons=[...this.state.person]
      persons[x]=theOne
-     this.setState({
-       person: persons
+     this.setState((prevState, props)=>{
+       return {
+         person: persons,
+         namechangeCount: prevState.namechangeCount+1
+       }
      })
   }
 
@@ -35,36 +67,51 @@ class App extends Component{
   deleteHandler =(index)=>{
     let arr =this.state.person
     arr.splice(index, 1)
+    console.log('delete', arr)
     this.setState({
       person:arr
     })
   }
 
+  loginHandler =()=>{
+    this.setState({authenticated: true})
+  }
+
 
   render(){
+    console.log('[App.js] render')
     let persons=null;
     if (this.state.renderPerson){
-      console.log('yes')
       persons=
         <Persons
             clicked= {this.deleteHandler}
             persons= {this.state.person}
             change = {this.nameChangedHandler}
+            isAuthenticated={this.state.authenticated}
         />
     }
 
-    const monitor=<Monitor
-          toggleHandler={this.toggleHandler}
-          renderPerson={this.state.renderPerson}
-        />
+    // const monitor=
     return (
-      <div className={appClasses.App}>
-        {monitor}
+
+      <Aux classes={appClasses.App}>
+        <button onClick={()=>{this.setState({showMonitor: false})}}>Remove monitor</button>
+        <AuthContext.Provider
+        value={{
+          authenticated:this.state.authenticated,
+          login: this.loginHandler
+        }}>
+        { this.state.showMonitor ? <Monitor
+              toggleHandler={this.toggleHandler}
+              renderPerson={this.state.renderPerson}
+              personsLength={this.state.person.length}
+              /> :null}
         {persons}
-      </div>
+        </AuthContext.Provider>
+      </Aux>
     )
   }
 }
 
 
-export default App;
+export default withClass(App, appClasses.App);
