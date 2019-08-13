@@ -1,0 +1,70 @@
+li button{
+  padding: 8px 30px;
+  border-radius: 30px;
+  border: 1px blue solid;
+  background-color: blue;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  left: 300px;
+  color: white;
+
+
+}
+
+li button:hover{
+  background: #ffa500;
+  border: 1px #ffa500 solid;
+}
+
+li{
+  list-style-type: none;
+  text-align: left;
+  position: relative;
+  margin: 50px 3px;
+  color: white;
+}
+li p{
+  background: blue;
+  display: inline-block;
+}
+/* ul{
+  display: flex;
+} */
+.contoller{
+  width: 600px;
+  margin: auto;
+  border: 1px #ccc solid;
+  background: #7fe5f0;
+  border-radius: 10px;
+}
+h2{
+  margin-top: 3rem;
+}
+
+@media (min-width: 700px)  {
+  .contoller{
+    width: 500px;
+  }
+
+}
+
+@media (min-width: 400px) and (max-width: 700px) {
+  .contoller{
+    width: 350px;
+  }
+  li .button2{
+    position: absolute;
+    left: 250px;
+  }
+}
+
+@media (max-width: 400px){
+  .contoller{
+    width: 80%;
+  }
+  li .button2{
+    position: absolute;
+    left: 70%;
+  }
+  }
