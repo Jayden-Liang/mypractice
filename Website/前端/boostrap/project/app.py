@@ -13,7 +13,7 @@ def create_app():
     def indess():
         return render_template('pig-game.html')
 
-    @app.route('/tecssssssest')
+    @app.route('/tecsdsdsssest')
     def indxe():
         return render_template('cover-background.html')
 

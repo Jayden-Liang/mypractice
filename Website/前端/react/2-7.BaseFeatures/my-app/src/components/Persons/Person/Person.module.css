@@ -1,0 +1,18 @@
+.Person{
+  width: 400px;
+  margin:16px auto;
+  border: 1px #eee solid;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+  text-align: center;
+
+}
+.red{
+  color: red;
+}
+
+@media (min-width:800px){
+  .Person {
+    width: 20%;
+  }
+}
