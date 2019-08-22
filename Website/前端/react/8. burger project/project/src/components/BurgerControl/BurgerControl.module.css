@@ -1,1 +1,13 @@
+.contoller{
+  width: 600px;
+  margin: auto;
+  border: 1px #ccc solid;
+  background: #7fe5f0;
+  border-radius: 10px;
+  padding: 30px;
+}
 
+.button{
+  background-color: green;
+  margin-top: 20px;
+}

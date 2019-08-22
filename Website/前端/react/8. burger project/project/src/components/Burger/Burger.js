@@ -3,10 +3,8 @@ import classes from './Burger.module.css'
 import Ingredients from './BurgerIngredients/BurgerIngredients'
 
 const burger = (props)=>{
-  console.log(props.ingres['meat'])
   // Object.keys可以得到object中的keys组成的array
   const allIngres = Object.keys(props.ingres)
-  console.log(allIngres)
   let newdf= allIngres.map((item)=>{
     return [...Array(props.ingres[item])].map((_,i)=>{
       return <Ingredients type={item} key={item+i}/>

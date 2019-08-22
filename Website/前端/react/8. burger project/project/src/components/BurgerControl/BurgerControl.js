@@ -6,11 +6,13 @@ const BurgerControl = (props)=>{
   return (
     <div>
       <h2>Burger Controller</h2>
-      <ul className={classes.contoller}>
-       <Controller type={"meat"} click={props.click}/>
-       <Controller type={"salad"} click={props.click}/>
-       <Controller type={"cheese"} click={props.click}/>
-      </ul>
+      <p>Total Price:{props.Price.toFixed(2)}</p>
+      <div className={classes.contoller}>
+       <Controller type={"meat"} deleteClick={props.deleteClick} ingres={props.ingres} click={props.click}/>
+       <Controller type={"salad"} deleteClick={props.deleteClick} ingres={props.ingres} click={props.click}/>
+       <Controller type={"cheese"} deleteClick={props.deleteClick} ingres={props.ingres} click={props.click}/>
+      </div>
+      <button disabled={!props.purchasable} className={classes.button} type="button">Purchase</button>
     </div>
   )
 }

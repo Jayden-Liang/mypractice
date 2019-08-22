@@ -1,70 +1,37 @@
-li button{
+button{
+  font-size: 120%;
   padding: 8px 30px;
-  border-radius: 30px;
-  border: 1px blue solid;
+  border-radius: 12px;
   background-color: blue;
   outline: none;
   cursor: pointer;
-  position: relative;
-  left: 300px;
   color: white;
+  border: none;
 
 
 }
 
-li button:hover{
+button:hover{
   background: #ffa500;
-  border: 1px #ffa500 solid;
 }
 
-li{
-  list-style-type: none;
-  text-align: left;
-  position: relative;
-  margin: 50px 3px;
-  color: white;
+button:disabled,
+button[disabled]{
+  background: grey;
 }
-li p{
-  background: blue;
-  display: inline-block;
-}
-/* ul{
+
+.controlGroup{
+  text-align: center;
   display: flex;
-} */
-.contoller{
-  width: 600px;
-  margin: auto;
-  border: 1px #ccc solid;
-  background: #7fe5f0;
-  border-radius: 10px;
+  justify-content: space-around;
+  padding-top: 20px;
 }
+.controlGroup div:first-child{
+  width: 30px;
+  padding: 8px 30px;
+
+}
+
 h2{
   margin-top: 3rem;
 }
-
-@media (min-width: 700px)  {
-  .contoller{
-    width: 500px;
-  }
-
-}
-
-@media (min-width: 400px) and (max-width: 700px) {
-  .contoller{
-    width: 350px;
-  }
-  li .button2{
-    position: absolute;
-    left: 250px;
-  }
-}
-
-@media (max-width: 400px){
-  .contoller{
-    width: 80%;
-  }
-  li .button2{
-    position: absolute;
-    left: 70%;
-  }
-  }

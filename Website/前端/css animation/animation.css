@@ -1,0 +1,29 @@
+body{
+  background: #333;
+}
+
+.box{
+  background: white;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  border: 1px red solid;
+  animation-name: myanimation;   /*  名字，随便取 */
+  animation-duration: 3s;            /*  持续时间 */
+  animation-iteration-count: 2;    /*  动画执行三遍， 设置为infinite，可以一直执行 */
+  animation-delay: 1s;             /*  延迟两秒执行动画 */
+  /* animation-direction: reverse;   /*  单独用好像没用，配合delay才可以，延迟后向相反的方向 */ */
+  /* animation-direction: alternate; */
+  animation-timing-function: ease-in;    /*  控制速度，linear是以同样的速度转换, ease-in,开始快后慢，ease-out先慢后快，ease-in-out默认 */
+  animation-fill-mode: forwards;  /* 保持100%最终的样子 */
+
+}
+
+/* @keyframes就是定义好的时间段里，通过时间的百分比来展示不同的css */
+@keyframes myanimation{
+  0% { background-color: white; left: 0px; top:0px; border-radius: 0 0 0 0;}   /*  0%是指从零开始， */
+  25% { background-color: grey; left: 500px; top: 0px; border-radius: 50% 0 0 0;}
+  50% { background-color: green;left: 500px; top: 500px; border-radius: 50% 50% 0 0;}
+  80% { background-color: red; left: 0px;  top:500px; border-radius: 50% 50% 50% 0;}
+  100% { background-color: white; left:0px; top:0px; border-radius: 50% 50% 50% 50%;}
+}
