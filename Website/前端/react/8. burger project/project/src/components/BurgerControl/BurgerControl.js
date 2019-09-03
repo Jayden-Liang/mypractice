@@ -12,7 +12,7 @@ const BurgerControl = (props)=>{
        <Controller type={"salad"} deleteClick={props.deleteClick} ingres={props.ingres} click={props.click}/>
        <Controller type={"cheese"} deleteClick={props.deleteClick} ingres={props.ingres} click={props.click}/>
       </div>
-      <button disabled={!props.purchasable} className={classes.button} type="button">Purchase</button>
+      <button onClick={props.goCheckout} disabled={!props.purchasable} className={classes.button} type="button">Purchase</button>
     </div>
   )
 }

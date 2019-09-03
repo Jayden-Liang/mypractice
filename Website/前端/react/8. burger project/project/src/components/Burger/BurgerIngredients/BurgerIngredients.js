@@ -33,7 +33,7 @@ class Ingredients extends Component{
 }
 
 Ingredients.propTypes={
-  type: PropTypes.string
+  type: PropTypes.string.isRequired
 }
 
 export default Ingredients

@@ -1,0 +1,7 @@
+.Modal{
+  z-index: 500;
+  width: 100%;
+  background-color: white;
+  border: 1px blue solid;
+  height: 100px;
+}

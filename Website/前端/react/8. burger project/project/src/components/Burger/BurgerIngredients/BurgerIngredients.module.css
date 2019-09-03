@@ -68,7 +68,7 @@
 
 }
 
-@media (min-width: 400px) and (max-width: 700px) {
+@media (min-width: 450px) and (max-width: 700px) {
   .Top{
     height:50px;
     width: 350px;
@@ -94,7 +94,7 @@
 
 }
 
-@media (max-width: 400px){
+@media (max-width: 450px){
   .Top{
     height:35px;
     width: 200px;

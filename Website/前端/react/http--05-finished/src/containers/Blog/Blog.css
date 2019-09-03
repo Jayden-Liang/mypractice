@@ -1,0 +1,24 @@
+
+
+.Header ul{
+  display: flex;
+  justify-content: center;
+
+}
+
+.Header li{
+  list-style: none;
+  padding: 30px;
+}
+
+.Header a{
+  text-decoration: none;
+  color: black;
+
+}
+
+.Header a:hover,
+.Header a:active,
+.Header a.active{
+  color: #fa923f;
+}
