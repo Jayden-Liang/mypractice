@@ -1,0 +1,9 @@
+.storeButton{
+  display: block;
+  width: 100px;
+  padding: 5px 10px;
+  background: #bada55;
+  border: none;
+  margin:auto;
+  margin-top: 3rem;
+}

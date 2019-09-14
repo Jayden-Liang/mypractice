@@ -4,32 +4,53 @@ import Burger from '../../components/Burger/Burger'
 import BurgerControl from '../../components/BurgerControl/BurgerControl'
 import OrderSummary from '../../components/Burger/Summary/Summary'
 import Modal from '../../components/UI/Modal/Modal'
-import Sidebar from '../../components/Layout/Sidebar/Sidebar'
-import Layout from '../../components/Layout/Layout'
+// import Layout from '../../components/Layout/Layout'
 import axios from '../../axios'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler'
+import {connect} from 'react-redux'
 
+
+const mapStateToProps=state=>{
+  return {
+    Ingredients: state.ingres,
+    price: state.unitPrice,
+    totalPrice: state.totalPrice
+  }
+}
+
+const mapDispatchToProps=(dispatch)=>{
+  return {
+     checkoutHandler :()=> dispatch({type:'CHECKOUT'}),
+     addHandler: (func, ingretype)=> dispatch({type: 'ADDINGRE', func: func, ingreType: ingretype}),
+     deleteHandler: (func, ingretype)=> dispatch({type: 'DELETEINGRE', func: func, ingreType: ingretype}),
+
+  }
+}
 class Builder extends Component{
   state={
-    Ingredients:{
-      meat: 0,
-      cheese:0,
-      salad:0
-    },
-    price:{
-      meat: 23.3,
-      cheese:12.1,
-      salad:5.9
-    },
+    // Ingredients:{
+    //   meat: 0,
+    //   cheese:0,
+    //   salad:0
+    // },
+    // price:{
+    //   meat: 23.3,
+    //   cheese:12.1,
+    //   salad:5.9
+    // },
     totalPrice: 0,            // meat:23 , cheese 12 salad:5
     purchasable: false,
     showOrder: false,
-    showSidebar: false,
     showSpinner: false
   }
 
+  // componentDidMount(){
+  //   console.log('i mounted')
+  // }
+
   checkPurchasable = (ingres)=>{
+    console.log('purchasable', ingres)
     const arr = Object.keys(ingres).map(
       item=>{
         return ingres[item]
@@ -42,17 +63,7 @@ class Builder extends Component{
       purchasable: sum>0
     })
   }
-  addHandler=(event, type)=>{
-    const ingres = {...this.state.Ingredients}
-    ingres[type]+=1
-    const newPrice=this.state.totalPrice + this.state.price[type]
-    this.setState({
-      Ingredients: ingres,
-      totalPrice: newPrice,
-    })
-    this.checkPurchasable(ingres)
 
-  }
   deleteHandler =(event, type)=>{
     const ingres = {...this.state.Ingredients}
     if (ingres[type]>=1){
@@ -78,57 +89,16 @@ class Builder extends Component{
       showSpinner:false
     })
   }
-  hideSidebar=()=>{
-    this.setState({
-      showSidebar: false
-    })
-  }
 
-  SidebarToggler =()=>{
-    this.setState((prevState)=>{
-      return {
-        showSidebar: !prevState.showSidebar
-      }
-    })
-  }
 
 
   checkoutHandler=()=>{
-    this.setState({
-      showSpinner: true
-      // showOrder: false
-    })
-    const orders={
-      ingredients:this.state.Ingredients,
-      price: this.state.totalPrice,
-      customer:{
-        name:'jayden',
-        address:{
-          street:'fff',
-          zipcode:'000'
-        },
-        email:'dfqq.com'
-      },
-      delivermethod:"fastest"
-    }
-    axios.post('/df', orders)
-    .then(res=>{
-      this.setState({
-        showSpinner: false,
-        showOrder: false
-      })
-      console.log(res)
-    })
-    .catch(error=>{
-      this.setState({
-        showSpinner: false,
-        showOrder: false
-      })
-    })
+    this.props.history.push('/checkout')
+
   }
 
   render(){
-    const ingre={...this.state.Ingredients}
+    const ingre={...this.props.Ingredients}
     const newIngres=Object.keys(ingre)
     newIngres.map(item=>{
       ingre[item] = ingre[item] === 0
@@ -137,9 +107,9 @@ class Builder extends Component{
 
    let order =<OrderSummary
                 showOrder={this.state.showOrder}
-                ingres={this.state.Ingredients}
-                price={this.state.price}
-                totalPrice={this.state.totalPrice}
+                ingres={this.props.Ingredients}
+                price={this.props.price}
+                totalPrice={this.props.totalPrice}
                 hide={this.backdrop}
                 checkout={this.checkoutHandler}
               />
@@ -151,21 +121,18 @@ class Builder extends Component{
 
     return(
       <Fragment>
-      <Layout toggler={this.SidebarToggler}></Layout>
+      <h3>{this.props.price['meat']}</h3>
 
-      <Modal hide={this.hideSidebar} showOrder={this.state.showSidebar}>
-         <Sidebar
-           showEl={this.state.showSidebar}
-         />
-      </Modal>
+
       <Modal hide={this.backdrop} showOrder={this.state.showOrder} showSpinner={this.state.showSpinner}>
         {order}
       </Modal>
-      <Burger  ingres={this.state.Ingredients}></Burger>
+      <Burger  ingres={this.props.Ingredients}></Burger>
       <BurgerControl
-      Price={this.state.totalPrice}
-      deleteClick={this.deleteHandler}
-      click={this.addHandler}
+      Price={this.props.totalPrice}
+      deleteClick={this.props.deleteHandler}
+      click={this.props.addHandler}
+      checkPurchasable={this.checkPurchasable}
       ingres={ingre}
       purchasable={this.state.purchasable}
       goCheckout={this.goCheckout}
@@ -175,4 +142,4 @@ class Builder extends Component{
   }
 }
 
-export default addErrorHandler(Builder, axios)
+export default connect(mapStateToProps, mapDispatchToProps)(addErrorHandler(Builder, axios))

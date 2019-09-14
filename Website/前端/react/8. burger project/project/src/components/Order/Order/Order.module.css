@@ -1,0 +1,15 @@
+.Detail{
+  text-align: left;
+  padding: 10px;
+  width: 70%;
+  margin: auto;
+  border: 1px #ccc solid;
+  box-shadow: 1px 2px 3px #ccc;
+}
+
+.Detail span{
+  display: inline-block;
+  border: 1px #ccc solid;
+  padding: 3px;
+  margin-left: 8px;
+}

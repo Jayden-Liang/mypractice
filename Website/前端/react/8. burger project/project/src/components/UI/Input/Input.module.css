@@ -1,0 +1,23 @@
+.Input,.Select{
+
+  display: block;
+  width: 100%;
+  margin:20px 0;
+  box-sizing: border-box;
+}
+
+.Input:hover{
+  background: #00a8ff;
+}
+
+.inValid{
+  background-color: grey;
+}
+.inValid:hover{
+  background: red;
+}
+
+.Error{
+  text-align: left;
+  color: red;
+}

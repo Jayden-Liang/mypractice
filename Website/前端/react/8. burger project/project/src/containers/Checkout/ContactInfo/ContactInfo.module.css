@@ -1,0 +1,7 @@
+.Form{
+  border: 1px #ccc solid;
+  padding: 25px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  width: 340px;
+}

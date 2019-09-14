@@ -6,8 +6,8 @@ const control = (props)=>{
     <Fragment>
     <div className={classes.controlGroup}>
     <div>{props.type}</div>
-      <button  disabled={props.ingres[props.type]} onClick={(event)=>props.deleteClick(event, props.type) }>-</button>
-      <button className={classes.button2}onClick={(event)=>props.click(event, props.type) }>+</button>
+      <button  disabled={props.ingres[props.type]}  onClick={()=>props.deleteClick(props.checkPurchasable, props.type) }>-</button>
+      <button className={classes.button2} onClick={()=>props.click(props.checkPurchasable, props.type) }>+</button>
     </div>
 
     </Fragment>
