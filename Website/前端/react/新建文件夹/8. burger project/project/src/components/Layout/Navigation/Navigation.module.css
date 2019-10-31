@@ -1,0 +1,9 @@
+
+.Nav{
+  display: flex;
+  list-style: none;
+
+}
+.Nav li{
+  padding-left: 20px;
+}

@@ -1,0 +1,28 @@
+.Sidebar{
+  position: fixed;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 300px;
+  background: #7ed6df;
+  z-index: 200;
+  transition: all 0.3s ease-in;
+}
+
+.sidebarNav ul{
+  color: red;
+  list-style: none;
+  padding-left: 0;
+
+}
+.sidebarNav ul li {
+  text-align: left;
+  margin: 10px 5px;
+}
+
+
+@media (min-width: 500px) {
+  .Sidebar{
+    display: none;
+  }
+}

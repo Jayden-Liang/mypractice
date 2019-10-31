@@ -1,0 +1,17 @@
+.navitem{
+  color: white;
+  text-decoration: none;
+  /* width: 100px ; */
+
+}
+.navitem:hover,
+.navitem:active,
+.navitem:active{
+  background: #34747c;
+  border-radius: 8px;
+}
+
+.navli{
+  /* width: 200px; */
+  font-size: 80%;
+}

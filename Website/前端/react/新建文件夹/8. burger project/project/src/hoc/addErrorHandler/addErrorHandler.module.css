@@ -1,0 +1,9 @@
+.Error{
+  height: 200px;
+  width: 200px;
+  background: #ff0000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,40 @@
+ button{
+  font-size: 90%;
+  padding: 8px 20px;
+  border-radius: 12px;
+  background-color: #003366;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+.button2, .button1{
+  padding: 2px 40px;
+  border-radius: 4px;
+}
+
+
+button:hover{
+  background: #ffa500;
+}
+
+button:disabled,
+button[disabled]{
+  background: grey;
+}
+
+.controlGroup{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+.controlGroup div:first-child{
+  width: 30px;
+  padding: 8px 30px;
+
+}
+
+h2{
+  margin-top: 3rem;
+}

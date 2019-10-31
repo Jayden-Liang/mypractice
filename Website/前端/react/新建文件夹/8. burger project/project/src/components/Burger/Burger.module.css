@@ -1,0 +1,52 @@
+.Burger{
+
+}
+
+@media (min-width: 1000px)  {
+  .Burger{
+    height: 300px;
+    width: 60%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    margin:auto;
+  }
+
+}
+
+@media (min-width: 700px)  {
+  .Burger{
+    height: 300px;
+    width: 80%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    margin:auto;
+  }
+
+}
+
+@media (min-width: 450px) and (max-width: 700px) {
+  .Burger{
+    height: 250px;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    margin:auto;
+  }
+
+}
+
+@media (max-width: 450px){
+  .Burger{
+    height: 200px;
+    width: 80%;
+    margin:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  }
